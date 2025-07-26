@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>College Course</title>
+  <style>
+    body {
+      background-color: cyan;
+      font-family: Arial, sans-serif;
+    }
+
+    img {
+      margin: 10px 50px;
+      width: 100px;
+      height: auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: navy;
+    }
+
+    dl {
+      background-color: #00ff77;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    ul.square {
+      background-color: blue;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    ul.circle {
+      background-color: orange;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    ul.disc {
+      background-color: green;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    ol {
+      padding-left: 20px;
+    }
+
+    marquee {
+      font-weight: bold;
+      font-size: 20px;
+      color: red;
+    }
+
+    #datetime {
+      font-weight: bold;
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    #topButton {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background-color: navy;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button.toggle-btn {
+      display: block;
+      margin: 0 auto 20px auto;
+      padding: 10px 15px;
+      font-size: 16px;
+      background-color: darkgreen;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button.toggle-btn:hover {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <img src="file:///B:/pictures/College%20Logo.jpg" alt="College Logo">
+  <h1>VIRUDHUNAGAR HINDU NADAR'S SENTHIKUMAR NADAR COLLEGE</h1>
+
+  <p id="datetime"></p>
+
+  <dl>
+    <dt>Home Page</dt>
+    <dd>
+      Virudhunagar Hindu Nadars' Senthikumara Nadar College is a general degree college located in Virudhunagar, Tamil Nadu. It was established in the year 1947. The college is affiliated with Madurai Kamaraj University. The college is ranked 95th among colleges in India by the NIRF in 2024.
+    </dd>
+  </dl>
+
+  <button class="toggle-btn" onclick="toggleCourses()">Show/Hide Courses</button>
+
+  <div id="courseSection">
+    <h2>Available Courses</h2>
+    <ol>
+      <li>Department of Commerce
+        <ul class="square">
+          <li>B.COM</li>
+          <li>B.COM CA</li>
+          <li>M.COM</li>
+          <li>M.COM CA</li>
+        </ul>
+      </li>
+      <li>Department of Mathematics
+        <ul class="circle">
+          <li>B.SC Maths</li>
+          <li>B.SC Maths CA</li>
+          <li>M.SC Maths</li>
+          <li>M.SC Maths CA</li>
+        </ul>
+      </li>
+      <li>Department of Computer Science
+        <ul class="disc">
+          <li>BCA</li>
+          <li>BCA CS</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <marquee>VIRUDHUNAGAR HINDU NADAR'S SENTHIKUMAR NADAR COLLEGE</marquee>
+
+  <button id="topButton" onclick="scrollToTop()">Top</button>
+
+  <script>
+    // 1. Welcome alert
+    window.onload = function () {
+      alert("Welcome to VHNSN College Course Page!");
+    };
+
+    // 2. Toggle courses section
+    function toggleCourses() {
+      const courseSection = document.getElementById("courseSection");
+      courseSection.style.display = courseSection.style.display === "none" ? "block" : "none";
+    }
+
+    // 3. Highlight list items on hover
+    document.addEventListener("DOMContentLoaded", function () {
+      const listItems = document.querySelectorAll("ul li");
+      listItems.forEach(item => {
+        item.addEventListener("mouseover", () => {
+          item.style.backgroundColor = "yellow";
+        });
+        item.addEventListener("mouseout", () => {
+          item.style.backgroundColor = "";
+        });
+      });
+    });
+
+    // 4. Live date and time
+    function updateDateTime() {
+      const now = new Date();
+      document.getElementById("datetime").textContent = now.toLocaleString();
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
+    // 5. Scroll to top
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
